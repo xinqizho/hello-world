@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+ul li {
+	list-style: none;
+}
+
+li {
+	float: left;
+}
+
+nav{
+	top: 0px;
+	height: 90px;
+	background-color: white;
+	width: 100%;
+	z-index: 1;
+	position: absolute;
+}
+
+.sign {
+	width: 350px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 30px;
+	margin-left: 5%;
+	margin-top: 10px;
+	color: rgb(73,43,122);
+}
+
+.button {
+	font-size: 13px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.selected {
+	color: rgb(73,43,122);
+}
+
+.unselected {
+	color: rgb(140,140,140);
+}	

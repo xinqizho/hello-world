@@ -1,0 +1,30 @@
+.box {
+	scrollbar-width: none;
+	perspective: 1px;
+	transform-style: preserve-3d;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.back {
+	transform: translate3d(0, 0, -1px) scale(2);
+}
+
+.back1 {
+	height: 930px;
+	background-image: url("../pic/coffee2.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+
+.back2 {
+	height: 930px;
+	background-image: url("../pic/coffee1.jpg");
+	background-size: cover;
+	background-position: center 0;
+	margin-top: -200px;
+}
+div {
+	width: 900px;
+	height: 100vh;
+}

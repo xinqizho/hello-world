@@ -1,0 +1,43 @@
+.projects {
+	height:700px;
+	width: 100%;
+	position: absolute;
+	background-color: white;
+	top: 725px;
+	margin-left: 0px;
+}
+
+.left {
+	float: left;
+	height: 100%;
+	width: 33.3%;
+	background-color: rgb(83,152,184);
+}
+
+.mid {
+	float: left;
+	height: 100%;
+	width: 33.3%;
+	background-color: rgb(72,42,122);
+}
+
+.right {
+	float: left;
+	height: 100%;
+	width: 33.3%;
+	background-color: rgb(153,108,192);
+}
+
+.text1 {
+	color: white;
+	margin-top: 320px;
+	margin-left: 20px;
+}
+
+.text2 {
+	color: white;
+	margin-left: 20px;
+	font-size: 30px;
+	margin-top: -10px;
+	font-weight: bold;
+}

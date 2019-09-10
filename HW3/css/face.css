@@ -1,0 +1,54 @@
+.face {
+	height: 235px;
+	width: 440px;
+	background-color: white;
+	position: absolute;
+	top: 285px;
+	margin-left: 235px;
+}
+.facecontain{
+	height: 70%;
+	width: 85%;
+	margin-left: 8%;
+	margin-top: 8%;
+	background-color: white;
+	overflow: hidden;
+}
+
+.faceimg {
+	float: left;
+	height: 200px;
+	margin-top: -15px;
+}
+
+.facetext{
+	margin-top: 0;
+	margin-left: 160px;
+	color: rgb(73,43,122);
+}
+
+.littlesign{
+	height: 20px;
+	font-family: 'Raleway', sans-serif;
+}
+
+.food {
+	margin-top: -20px;
+	font-size: 35px;
+}
+
+.list {
+	margin-top: -45px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.line {
+	margin-top: -50px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.folio {
+	margin-top: -40px;
+}
