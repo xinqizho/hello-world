@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		var jsonDoc;
+		function loadJSON (url) {
+			try {
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.open("GET",url,false);
+				xmlhttp.send(); //properties of XMLHTTPRequest
+
+				if(xmlhttp.status == 404){
+					throw "wrong";
+				}
+
+				jsonDoc=xmlhttp.responseText;
+
+				return jsonDoc;
+			} catch (err) {
+				alert("The file doesn't exist!")
+				die();
+			}
+			
+		 }
+
+		function parseJSON() {
+			jsonObj = JSON.parse(jsonDoc);
+			if(jsonObj["Mainline"]["Table"]["Row"] == undefined || jsonObj["Mainline"]["Table"]["Row"][0] == undefined){
+				alert("The file contains NO car manufacturers!");
+				die();
+			}
+
+			var data = "";
+			headers = jsonObj["Mainline"]["Table"]["Header"]["Data"];
+			rows = jsonObj["Mainline"]["Table"]["Row"];
+			data = "<table border='1'>";
+
+			data += "<tr>";
+			for (var header in headers) {
+				data += "<th>";
+				data += headers[header];
+				data += "</th>";
+			}
+			data += "</tr>"
+			
+			for (var row in rows) {
+				if(rows[row] == null)
+					continue;
+
+				data += "<tr>"
+
+				data += "<td>" + rows[row]["Rank"] + "</td>";
+
+				data += "<td>" + rows[row]["Group"]+ "</td>";
+				
+				data += "<td style='padding-left:30px'>";
+				var num = 0;
+				for(var i in rows[row]["Hubs"]["Hub"]){
+					if(rows[row]["Hubs"]["Hub"][i].length > 0)
+						if(num == 0){
+							data += "<li><b>" + rows[row]["Hubs"]["Hub"][i] + "</b></li>";
+							num += 1;
+						}
+						else
+							data += "<li>" + rows[row]["Hubs"]["Hub"][i] + "</li>";
+				}
+				data += "</td>";
+
+				data +="<td>" + rows[row]["Vehicles"] + "</td>";
+
+				data +="<td>" + "<a href='" + rows[row]["HomePage"] + "'>" + rows[row]["HomePage"] + "</a></td>";
+
+				data +="<td align='center'>" + "<img src='" + rows[row]["Logo"] + "'></td>";
+
+				data += "</tr>";
+			}
+
+			data += "</table>";
+
+			return data;
+		}
+
+		function writeData(data) {
+			nWin = window.open("", "", "scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes");
+			nWin.document.title = "Largest Manufacturers by Production (2017)"
+			nWin.document.write(data);
+			nWin.focus();
+		}
+
+		function start() {
+			url = document.getElementById('url').value;
+
+			loadJSON(url);
+			if(jsonDoc == null || jsonDoc == "undefined")
+				die();
+
+			data = parseJSON();
+			writeData(data);
+		}
+
+		
+		// ....... processing the document goes here
+
+
+	</script>
+</head>
+<body>
+	<div style="height: 1vh; text-align: center;">
+		<p style="margin-top: 50px;"><b>Enter URL for largest manufacturers by production (2017) List JSON File</b></p>
+		<input type="text" id="url" style="width: 300px;"><br>
+		<button style="margin-top: 20px;" onclick="start()">Submit Query</button>
+	</div>
+</body>
+</html>
